@@ -177,8 +177,8 @@
       {{/if}}
 
       {{#unless private}}
-      <li id="snyk_vulns" data-name="{{name}}">
-        <a href="https://snyk.io/test/npm/{{name}}">Test for vulnerabilities</a> <span style="display:none">found</span> with Snyk
+      <li id="snyk_vulns" data-name="{{name}}" data-version="{{version}}">
+        <a href="https://snyk.io/test/npm/{{name}}/{{version}}">Test for vulnerabilities</a> <span style="display:none">found</span> with Snyk
       </li>
       {{/if}}
     </ul>

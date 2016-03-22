@@ -16,18 +16,20 @@ snyk.init = function() {
 
   var data = snyk.element.data();
 
-  if (!data.name) {
+  if (!data.name || !data.version) {
     return;
   }
 
   // kick off XHR requests
-  snyk.getVulnerabilities(data.name);
+  snyk.getVulnerabilities(data);
 };
 
 snyk.getVulnerabilities = function (pkg) {
   var root = snyk.api + 'vuln/npm';
+  var name = pkg.name;
+  var version = pkg.version;
 
-  return $.getJSON(root + '/' + pkg).done(function (res) {
+  return $.getJSON(root + '/' + name + '/' + version).done(function (res) {
     var vulns = {
       vulns: 0,
       directVulns: 0,
